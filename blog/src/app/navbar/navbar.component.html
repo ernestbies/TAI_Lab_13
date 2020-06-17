@@ -2,8 +2,11 @@
   <li class="nav-item">
     <a class="nav-link active" [routerLink]="['/']">Strona główna</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link active" [routerLink]="['/blog']">Blog<br>(wymagane zalogowanie)</a>
+  <li class="nav-item" *ngIf="!authService.isUserLoggedIn()">
+    <a class="nav-link active" [routerLink]="['/']">Blog<br>(wymagane zalogowanie)</a>
+  </li>
+  <li class="nav-item" *ngIf="authService.isUserLoggedIn()">
+    <a class="nav-link active" [routerLink]="['/blog']">Blog<br></a>
   </li>
   <li class="nav-item">
     <a class="nav-link active" [routerLink]="['/contact']">Kontakt</a>
