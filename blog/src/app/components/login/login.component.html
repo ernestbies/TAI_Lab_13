@@ -5,16 +5,16 @@
         <div style="margin: 2rem">
         <div class="input-group" style="flex-direction: column; margin-bottom: 10px">
           <label>Wprowadź nazwę użytkownika: </label>
-          <input [(ngModel)]="credentials.login" type="text" class="rounded"
+          <input [(ngModel)]="username" type="text" class="rounded"
                  name="username" placeholder="Nazwa użytkownika..." title="Wprowadź login">
         </div>
 
         <div class="input-group" style="flex-direction: column; margin-bottom: 10px">
           <label>Wprowadź swoje hasło: </label>
-          <input [(ngModel)]="credentials.password" type="password" class="rounded"
+          <input [(ngModel)]="password" type="password" class="rounded"
                  name="password" placeholder="Hasło..." title="Wprowadź hasło">
         </div>
-        <button (click)="signIn()" class="btn btn-primary" type="submit" title="Przycisk zaloguj" [disabled]="!isValid()">
+        <button (click)="handleBasicAuthLogin()" class="btn btn-primary" type="submit" title="Przycisk zaloguj">
           Zaloguj
         </button>
       </div>

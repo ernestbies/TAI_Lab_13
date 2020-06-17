@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../../services/auth/auth.service";
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -8,39 +8,31 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  username = '';
+  password = '';
+  errorMessage = 'Invalid Credentials';
+  invalidLogin = false;
 
-  private logged;
-  private logout;
-
-  public credentials = {
-    login: '',
-    password: ''
-  };
-
-  constructor(public authService: AuthService, private router: Router) {
+  constructor(private router: Router,
+              private authenticationService: AuthService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
-
-  signIn() {
-    return this.authService.authenticate(this.credentials).subscribe((result) => {
-      if (!result) {
-        this.logged = false;
-      } else {
-        this.logout = false;
-        this.credentials = {
-          login: '',
-          password: ''
-        };
-        this.router.navigate(['/']);
-      }
-    });
-  }
-
-  isValid() {
-    return (this.credentials.login !== '' && this.credentials.password !== '');
+  handleBasicAuthLogin() {
+    this.authenticationService.executeAuthenticationService(this.username, this.password)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate(['blog']);
+            this.invalidLogin = false;
+        },
+        error => {
+          console.log(this.errorMessage);
+          this.invalidLogin = true;
+        }
+      );
   }
 
 }

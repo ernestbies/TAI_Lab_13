@@ -21,7 +21,7 @@ export class DataService {
     return this.http.post(this.url + '/api/posts/search', data);
   }
 
-  createOrUpdate(post) {
+  createPost(post) {
     return this.http.post(`${this.url}/api/posts`, post);
   }
 

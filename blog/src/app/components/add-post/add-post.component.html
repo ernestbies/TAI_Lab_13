@@ -1,5 +1,5 @@
 <div class="form">
-  <form (ngSubmit)="save()">
+  <form>
     <fieldset>
       <legend class="w-auto">Dodawanie postu</legend>
       <div class="form-group">
@@ -20,7 +20,7 @@
       </div>
 
       <div class="form-group button">
-        <button type="submit" class="btn btn-primary">Dodaj nowy post</button>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Dodaj nowy post</button>
       </div>
     </fieldset>
   </form>

@@ -22,9 +22,8 @@ import {TextFormatDirective} from './directives/text-format.directive';
 import {SelectizeComponent} from './components/selectize/selectize.component';
 import {AddPostComponent} from './components/add-post/add-post.component';
 import {AuthService} from "./services/auth/auth.service";
-import {AuthInterceptor} from "./services/auth/auth.interceptor";
 import {LoginComponent} from './components/login/login.component';
-import {SignupComponent} from './components/signup/signup.component';
+import {AuthInterceptor} from "./services/auth/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -45,8 +44,7 @@ import {SignupComponent} from './components/signup/signup.component';
     TextFormatDirective,
     SelectizeComponent,
     AddPostComponent,
-    LoginComponent,
-    SignupComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

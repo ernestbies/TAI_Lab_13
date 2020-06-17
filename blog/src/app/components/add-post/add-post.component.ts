@@ -15,15 +15,15 @@ export class AddPostComponent implements OnInit {
     content: '',
   };
 
-  constructor(private postsService: DataService, private router: Router) {
+  constructor(private dataService: DataService, private router: Router) {
   }
 
   ngOnInit() {
   }
 
-  save() {
-    this.postsService.createOrUpdate(this.post).subscribe(f => {
+  onSubmit() {
+    this.dataService.createPost(this.post).subscribe( (post) => {
       this.router.navigate(['/blog']);
-    })
+    });
   }
 }
